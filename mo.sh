@@ -5,16 +5,8 @@
 ##########################
 
 # -----------------------
-# Configurations
-
-# DISK_LIST=(/dev/sda2)
-DISK_LIST=()
-ETH_INTERFACES=()
-MIDDLE_BAR_SIZE=24
-HALF_BAR_SIZE=16
-MIN_BAR_SIZE=8
-TEMP_FILE_PATH=$(mktemp -d)
-SLEEP_TIME=1
+# load onfigurations
+source ./config.sh
 # -----------------------
 
 render() {

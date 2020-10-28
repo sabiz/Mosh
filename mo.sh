@@ -151,6 +151,7 @@ convertByte2() {
 #############################################################################################################
 
 printGpuStatus() {
+    type nvidia-smi >/dev/null 2>&1||return 0
     printTitle "GPU"
     gpuCount=$(nvidia-smi -L | wc -l)
     for id in `seq 0 $(($gpuCount - 1))`; do

@@ -219,7 +219,7 @@ printSystemHost() {
     printSubTitleNoReturn "[ Host ] "
     printDetailTitle "\\e[38;5;141m$(whoami)\\e[0m@\\e[38;5;141m$(hostname)\\e[0m"
     if [ -n "$ETH_INTERFACES" ]; then
-        local ipv4=$(ip address show enp0s31f6 | grep "inet " | tr -s " " | cut -d" " -f 3 | cut -d/ -f 1)
+        local ipv4=$(ip address show $ETH_INTERFACES | grep "inet " | tr -s " " | cut -d" " -f 3 | cut -d/ -f 1)
         printDetailTitle " (\\e[38;5;147m$ipv4\\e[0m)"
     fi
     printClear

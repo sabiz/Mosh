@@ -6,7 +6,7 @@
 
 CONFIG_FILE_NAME='config.sh'
 DISK_LIST=$(lsblk -l -p -o NAME,TYPE,MOUNTPOINT |grep  -P '.+(disk|part) /(?!boot)' | cut -d" " -f1|xargs)
-ETH_INTERFACES=$(ls -l  /sys/class/net |grep -v '/virtual/' | cut -d " " -f 11 | xargs)
+ETH_INTERFACES=$(ip link| grep -E '^[0-9]+'|grep -vE 'DOWN|UNKNOWN'|cut -d':' -f 2|head -n1|xargs)
 
 echo '# CONFIGURATIONS' > $CONFIG_FILE_NAME
 echo "DISK_LIST=($DISK_LIST)" >> $CONFIG_FILE_NAME
